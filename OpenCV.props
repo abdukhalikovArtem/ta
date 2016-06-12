@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Condition="'$(PlatformToolsetVersion)'=='90'">
+    <OpenCVPlatform>vc9</OpenCVPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PlatformToolsetVersion)'=='100'">
+    <OpenCVPlatform>vc10</OpenCVPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PlatformToolsetVersion)'=='110'">
+    <OpenCVPlatform>vc11</OpenCVPlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PlatformToolsetVersion)'=='120'">
+    <OpenCVPlatform>vc12</OpenCVPlatform>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OpenCVPlatformDir>$(OPENCV_DIR)\build\$(PROCESSOR_ARCHITECTURE)\$(OpenCVPlatform)</OpenCVPlatformDir>
+    <OpenCVLibraryType>lib</OpenCVLibraryType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(ConfigurationType)' == 'StaticLibrary'">
+    <OpenCVLibraryType>staticlib</OpenCVLibraryType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DebugMarker>d</DebugMarker>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OpenCVLibrarySuffix>$(OPENCV_VERSION)$(DebugMarker)</OpenCVLibrarySuffix>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OPENCV_DIR)\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(OpenCVPlatformDir)\$(OpenCVLibraryType);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d$(OpenCVLibrarySuffix).lib;opencv_contrib$(OpenCVLibrarySuffix).lib;opencv_core$(OpenCVLibrarySuffix).lib;opencv_features2d$(OpenCVLibrarySuffix).lib;opencv_flann$(OpenCVLibrarySuffix).lib;opencv_gpu$(OpenCVLibrarySuffix).lib;opencv_highgui$(OpenCVLibrarySuffix).lib;opencv_imgproc$(OpenCVLibrarySuffix).lib;opencv_legacy$(OpenCVLibrarySuffix).lib;opencv_ml$(OpenCVLibrarySuffix).lib;opencv_nonfree$(OpenCVLibrarySuffix).lib;opencv_objdetect$(OpenCVLibrarySuffix).lib;opencv_photo$(OpenCVLibrarySuffix).lib;opencv_stitching$(OpenCVLibrarySuffix).lib;opencv_superres$(OpenCVLibrarySuffix).lib;opencv_ts$(OpenCVLibrarySuffix).lib;opencv_video$(OpenCVLibrarySuffix).lib;opencv_videostab$(OpenCVLibrarySuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(ConfigurationType)' == 'StaticLibrary'">
+        IlmImf.lib;
+        IlmImfd.lib;
+        libjasper.lib;
+        libjasperd.lib;
+        libjpeg.lib;
+        libjpegd.lib;
+        libpng.lib;
+        libpngd.lib;
+        libtiff.lib;
+        libtiffd.lib;
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
