@@ -84,10 +84,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlobDetector\BlobDetector.h" />
+    <ClInclude Include="BlobDetector\SingleScaleFilter\SingleScaleFilter.h" />
+    <ClInclude Include="BlobDetector\SolvedFilterGenerator\SolvedFilterGenerator.h" />
     <ClInclude Include="MogDetector\MogPIxel\MogPixel.h" />
     <ClInclude Include="MogDetector\MogDetector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlobDetector\BlobDetector.cpp" />
+    <ClCompile Include="BlobDetector\SingleScaleFilter\SingleScaleFilter.cpp" />
+    <ClCompile Include="BlobDetector\SolvedFilterGenerator\SolvedFilterGenerator.cpp" />
     <ClCompile Include="ta.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -99,6 +105,9 @@
     <ClCompile Include="MogDetector\MogPIxel\MogPixel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BlobDetector\CORE\CreateBuffer.cl" />
+    <None Include="BlobDetector\CORE\CreateResponse.cl" />
+    <None Include="BlobDetector\CORE\FindLM.cl" />
     <None Include="driver.vcxproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
