@@ -61,12 +61,12 @@ void DisplayCtrl::DumpObject(fcs::object objects, cv::Mat& img) {
 	namedWindow("Object", WINDOW_AUTOSIZE);// Create a window for display.
 	waitKey(1);
 
-	std::stringstream tmp;
+	/*std::stringstream tmp;
 	string mainPath = std::getenv("DUMP_DATA");
 	tmp << mainPath << "\\objects\\";
 	tmp << "object_" << objectCounter << ".png";
 	std::string s = tmp.str();
-	imwrite(s, object);
+	imwrite(s, object);*/
 
 	objectCounter++;
 }
@@ -155,7 +155,7 @@ void DisplayCtrl::Display(std::vector<fcs::TFeature>& points, cv::Mat& img, int 
 	imshow("Main", draw);
 	waitKey(1);
 
-	std::stringstream tmp, tmp1;
+/*	std::stringstream tmp, tmp1;
 	string mainPath = std::getenv("DUMP_DATA");
 	tmp << mainPath << "\\filters\\";
 	tmp << "frame_" << frameCounter << ".png";
@@ -163,6 +163,6 @@ void DisplayCtrl::Display(std::vector<fcs::TFeature>& points, cv::Mat& img, int 
 	std::string s = tmp.str();
 	std::string s2 = tmp1.str();
 	imwrite(s, draw);
-	imwrite(s2, img);
+	imwrite(s2, img);*/
 	frameCounter++;
 }

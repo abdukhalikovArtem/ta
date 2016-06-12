@@ -92,12 +92,12 @@ void BlobDetector::DisplayMajority() {
 		imshow(ss.str(), draw);                   // Show our image inside it.
 		waitKey(1);
 
-		std::stringstream tmp;
+		/*std::stringstream tmp;
 		string mainPath = std::getenv("DUMP_DATA");
 		tmp << mainPath << "\\filters\\";
 		tmp << "response_" << i << "_counter_" << dumpCounter << ".png";
 		std::string s = tmp.str();
-		imwrite(s, draw);
+		imwrite(s, draw);*/
 		
 	}
 	dumpCounter++;

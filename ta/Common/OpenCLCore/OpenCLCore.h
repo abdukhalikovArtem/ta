@@ -1,4 +1,6 @@
 #pragma once
+#define CL_USE_DEPRECATED_OPENCL_2_0_APIS 
+#include "CL\cl.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,7 +8,7 @@
 #include <memory.h>
 #include <vector>
 #include <string>
-#include "CL\cl.h"
+
 
 
 

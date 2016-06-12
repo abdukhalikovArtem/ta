@@ -65,8 +65,8 @@ SingleScaleFilter::SingleScaleFilter(IInputProvider::VideoSettings& input)  {
 	range[1] = input.imageWidth;
 	
 	//Folder for dump
-	string mainPath = std::getenv("DUMP_DATA");
-	filterImg << mainPath << "\\filters\\";
+	/*string mainPath = std::getenv("DUMP_DATA");
+	filterImg << mainPath << "\\filters\\";*/
 	fileCounter = 0;
 }
 

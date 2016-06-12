@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../fcs.h"
+#include "../../../fcs.h"
 #include <fstream>
 
 class ObjectDump {

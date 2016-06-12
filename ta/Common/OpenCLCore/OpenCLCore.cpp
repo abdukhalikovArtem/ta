@@ -613,13 +613,13 @@ int OpenCLCore::ReadSourceFromFile(const char* fileName, char** source, size_t* 
 
 #pragma warning( pop )
 
-const char* OpenCLCore::platform = "NVIDIA CUDA";//
+const char* OpenCLCore::platform = "Intel(R) OpenCL";//
 //NVIDIA CUDA
 //Intel(R) OpenCL
 
 OpenCLCore::OpenCLCore() {
 
-	cl_device_type deviceType = CL_DEVICE_TYPE_GPU;
+	cl_device_type deviceType = CL_DEVICE_TYPE_CPU;
 	SetupOpenCL(deviceType);
 
 }

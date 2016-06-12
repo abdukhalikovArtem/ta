@@ -36,10 +36,12 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="../OpenCV.props" />
+    <Import Project="..\OpenCL.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="../OpenCV.props" />
+    <Import Project="..\OpenCL.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -70,7 +72,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -84,16 +86,26 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BlobDetector\BlobDetector.h" />
-    <ClInclude Include="BlobDetector\SingleScaleFilter\SingleScaleFilter.h" />
-    <ClInclude Include="BlobDetector\SolvedFilterGenerator\SolvedFilterGenerator.h" />
-    <ClInclude Include="MogDetector\MogPIxel\MogPixel.h" />
-    <ClInclude Include="MogDetector\MogDetector.h" />
+    <ClInclude Include="Primary\BlobDetector\BlobDetector.h" />
+    <ClInclude Include="Primary\BlobDetector\SingleScaleFilter\SingleScaleFilter.h" />
+    <ClInclude Include="Primary\BlobDetector\SolvedFilterGenerator\SolvedFilterGenerator.h" />
+    <ClInclude Include="Common\common.h" />
+    <ClInclude Include="Common\DisplayOpenCV\DisplayOpenCV.h" />
+    <ClInclude Include="Common\Dump\ObjectDump.h" />
+    <ClInclude Include="Common\Getopt\getopt.hpp" />
+    <ClInclude Include="Common\OpenCLCore\OpenCLCore.h" />
+    <ClInclude Include="Primary\MogDetector\MogPIxel\MogPixel.h" />
+    <ClInclude Include="Primary\MogDetector\MogDetector.h" />
+    <ClInclude Include="Primary\primary.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BlobDetector\BlobDetector.cpp" />
-    <ClCompile Include="BlobDetector\SingleScaleFilter\SingleScaleFilter.cpp" />
-    <ClCompile Include="BlobDetector\SolvedFilterGenerator\SolvedFilterGenerator.cpp" />
+    <ClCompile Include="Primary\BlobDetector\BlobDetector.cpp" />
+    <ClCompile Include="Primary\BlobDetector\SingleScaleFilter\SingleScaleFilter.cpp" />
+    <ClCompile Include="Primary\BlobDetector\SolvedFilterGenerator\SolvedFilterGenerator.cpp" />
+    <ClCompile Include="Common\DisplayOpenCV\DisplayOpenCV.cpp" />
+    <ClCompile Include="Common\Getopt\getopt.cpp" />
+    <ClCompile Include="Common\Input\IInputProvider.cpp" />
+    <ClCompile Include="Common\OpenCLCore\OpenCLCore.cpp" />
     <ClCompile Include="ta.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -101,13 +113,13 @@
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="MogDetector\MogDetector.cpp" />
-    <ClCompile Include="MogDetector\MogPIxel\MogPixel.cpp" />
+    <ClCompile Include="Primary\MogDetector\MogDetector.cpp" />
+    <ClCompile Include="Primary\MogDetector\MogPIxel\MogPixel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BlobDetector\CORE\CreateBuffer.cl" />
-    <None Include="BlobDetector\CORE\CreateResponse.cl" />
-    <None Include="BlobDetector\CORE\FindLM.cl" />
+    <None Include="Primary\BlobDetector\CORE\CreateBuffer.cl" />
+    <None Include="Primary\BlobDetector\CORE\CreateResponse.cl" />
+    <None Include="Primary\BlobDetector\CORE\FindLM.cl" />
     <None Include="driver.vcxproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
